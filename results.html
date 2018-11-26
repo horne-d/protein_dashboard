@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Dashboard</title>
+    
+    <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
+    <link rel="stylesheet" href="static/css/style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="static/js/d3.min.js"></script>
+    <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
+    <script type="text/javascript" src="static/js/dc.min.js"></script>
+    <script type="text/javascript" src="static/js/queue.min.js"></script>
+    <script type="text/javascript" src="static/js/graphs.js"></script>
+    
+</head>
+<body>
+    
+<!--------------- Modal Section --------------->    
+    
+<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">What you need to know..</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>This is a dashboard of data showing which brand of supplement both male and female consume. This also indicates the age along with the total monthly spends on average that is spent. We also measure how long the person has been training for.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--------------- Nav Section --------------->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <span class="navbar-brand mb-0 h1">Protein Dashboard</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse right" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Dashboard</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="results.html">Results <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="data.html">Data</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">Help <i class="fas fa-question-circle"></i></a>
+      </li>
+    
+    </ul>
+  </div>
+</nav>
+    
+<!--------------- Main Section -------------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Results</h1>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="container background-tab">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>What does the data show?</h5>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h5><i>Company ordered from:</i></h5>
+            <p>The results show that the higher amount of people chose to order from Myprotein, with the fewest ordering from Protein Works. By changing the year, Myprotein was the biggest seller every year with the exception of 2014 when this was in fact the least popular choice.</p>
+        </div>
+        <div class="col-sm-6">
+            <h5><i>Gender:</i></h5>
+            <p>Reviewing the data, this shows that Myprotein had the most Male customers. However, female customers favoured both Bulkpowders and Protein Works.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h5><i>Average spending:</i></h5>
+            <p>On average, a person tends to spend more with bulkpowders with the lowest average spend for Myprotein. Bulkpowders have the highest average spend year on year, with exception to 2014 when in fact they were the lowest on average. From this, females tend to spend more on average at Bulkpowders with males spending less.</p>
+        </div>
+        <div class="col-sm-6">
+            <h5><i>Comparing what you spend and your age:</i></h5>
+            <p>What this shows is that the higher the age, the less you tend to spend. This pattern will be the same across all brands and both genders.</p>
+        </div>
+    </div>
+
+
+
+
+<script type="text/javascript" src="static/js/custom.js"></script> 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

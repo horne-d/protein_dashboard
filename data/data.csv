@@ -1,0 +1,88 @@
+"",”sex”,”brand”,”age”,”years_training”,”avg_monthly_spend”
+"1",”Male”,”Myprotein”,”20-24”,3,30
+"2",”Female”,”Protein Works”,”>30”,8,40
+"3",”Male”,”Myprotein”,”25-29”,7,20
+"4",”Male”,”Bulkpowders”,”20-24”,9,50
+"5",”Male”,”Bulkpowders”,”25-29”,3,60
+"6",”Female”,”PHD”,”20-24”,3,80
+"7",”Male”,”Myprotein”,”<19”,1,30
+"8",”Male”,”Myprotein”,”25-29”,7,50
+"9",”Female”,”Myprotein”,”20-24”,5,20
+"10",”Female”,”Protein Works”,”<19”,2,30
+"11",”Female”,”PHD”,”>30”,10,30
+"12",”Male”,”Bulkpowders”,”20-24”,5,40
+"13",”Female”,”PHD”,”25-29”,4,30
+"14",”Male”,”PHD”,”25-29”,5,10
+"15",”Male”,”Myprotein”,”20-24”,4,40
+"16",”Female”,”Bulkpowders”,”20-24”,8,70
+"17",”Male”,”Myprotein”,”<19”,2,40
+"18",”Male”,”Myprotein”,”20-24”,6,40
+"19",”Female”,”Protein Works”,”>30”,7,70
+"20",”Male”,”Bulkpowders”,”25-29”,5,40
+"21",”Male”,”Bulkpowders”,”>30”,4,60
+"22",”Male”,”Myprotein”,”20-24”,3,60
+"23",”Female”,”Myprotein”,”25-29”,7,10
+"24",”Female”,”Myprotein”,”>30”,5,20
+"25",”Male”,”Myprotein”,”25-29”,6,30
+"26",”Female”,”Protein Works”,”>30”,4,40
+"27",”Male”,”Protein Works”,”20-24”,7,80
+"28",”Male”,”Protein Works”,”>30”,3,30
+"29",”Male”,”Bulkpowders”,”25-29”,6,60
+"30",”Male”,”Protein Works”,”>30”,4,60
+"31",”Male”,”PHD”,”20-24”,4,70
+"32",”Male”,”Protein Works”,”25-29”,9,40
+"33",”Male”,”Protein Works”,”20-24”,7,20
+"34",”Female”,”Myprotein”,”25-29”,3,60
+"35",”Female”,”PHD”,”20-24”,3,80
+"36",”Female”,”Protein Works”,”25-29”,8,40
+"37",”Female”,”Bulkpowders”,”20-24”,7,20
+"38",”Male”,”Protein Works”,”20-24”,2,10
+"39",”Male”,”Bulkpowders”,”25-29”,8,50
+"40",”Female”,”PHD”,”20-24”,6,80
+"41",”Male”,”Myprotein”,”>30”,9,60
+"42",”Male”,”Myprotein”,”25-29”,6,60
+"43",”Male”,”Myprotein”,”25-29”,7,70
+"44",”Female”,”Bulkpowders”,”20-24”,5,70
+"45",”Female”,”Myprotein”,”25-29”,8,50
+"46",”Male”,”Myprotein”,”>30”,9,70
+"47",”Female”,”Bulkpowders”,”>30”,7,40
+"48",”Male”,”Bulkpowders”,”20-24”,8,50
+"49",”Male”,”Bulkpowders”,”<19”,2,20
+"50",”Female”,”Myprotein”,”<19”,1,30
+"51",”Female”,”Myprotein”,”<19”,3,20
+"52",”Male”,”Bulkpowders”,”20-24”,4,40
+"53",”Male”,”PHD”,”<19”,1,60
+"54",”Female”,”Myprotein”,”<19”,3,30
+"55",”Male”,”Myprotein”,”25-29”,8,80
+"56",”Male”,”Myprotein”,”20-24”,6,30
+"57",”Female”,”Protein Works”,”20-24”,3,70
+"58",”Male”,”Protein Works”,”<19”,1,60
+"59",”Female”,”Bulkpowders”,”20-24”,8,60
+"60",”Female”,”Bulkpowders”,”20-24”,5,60
+"61",”Female”,”Protein Works”,”25-29”,8,20
+"62",”Female”,”PHD”,”>30”,6,30
+"63",”Female”,”Protein Works”,”>30”,8,80
+"64",”Male”,”Myprotein”,”20-24”,6,60
+"65",”Male”,”Bulkpowders”,”>30”,8,40
+"66",”Male”,”PHD”,”>30”,4,30
+"67",”Female”,”Myprotein”,”20-24”,2,10
+"68",”Male”,”PHD”,”<19”,3,50
+"69",”Female”,”PHD”,”25-29”,7,80
+"70",”Male”,”PHD”,”20-24”,5,40
+"71",”Male”,”PHD”,”>30”,10,20
+"72",”Male”,”PHD”,”20-24”,7,60
+"73",”Female”,”Myprotein”,”25-29”,8,70
+"74",”Male”,”Bulkpowders”,”20-24”,6,60
+"75",”Female”,”Protein Works”,”20-24”,5,60
+"76",”Female”,”Myprotein”,”<19”,1,50
+"77",”Male”,”Bulkpowders”,”25-29”,6,30
+"78",”Female”,”PHD”,”20-24”,1,10
+"79",”Male”,”Myprotein”,”25-29”,2,10
+"80",”Male”,”Bulkpowders”,”25-29”,7,60
+"81",”Female”,”Bulkpowders”,”20-24”,6,30
+"82",”Male”,”Myprotein”,”25-29”,6,40
+"83",”Male”,”Myprotein”,”20-24”,3,30
+"84",”Male”,”Protein Works”,”25-29”,7,60
+"85",”Female”,”Bulkpowders”,”20-24”,4,80
+"86",”Male”,”Bulkpowders”,”25-29”,10,80
+"87",”Female”,”Bulkpowders”,”20-24”,2,60
