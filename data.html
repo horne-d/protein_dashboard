@@ -1,188 +1,646 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+
     <title>Dashboard</title>
-    
-    <link rel="stylesheet" href="static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css"/>
-    <link rel="stylesheet" href="static/css/style.css"/>
+
+    <link rel="stylesheet" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dc/2.1.8/dc.min.css" />
+    <link rel="stylesheet" href="static/css/style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    
+
     <script type="text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="static/js/d3.min.js"></script>
     <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
     <script type="text/javascript" src="static/js/dc.min.js"></script>
     <script type="text/javascript" src="static/js/queue.min.js"></script>
     <script type="text/javascript" src="static/js/graphs.js"></script>
-    
+
 </head>
+
 <body>
-    
-<!--------------- Modal Section --------------->    
-    
-<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">What you need to know..</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>This is a dashboard of data showing which brand of supplement both male and female consume. This also indicates the age along with the total monthly spends on average that is spent. We also measure how long the person has been training for.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!--------------- Nav Section --------------->
+    <!--------------- Modal Section --------------->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <span class="navbar-brand mb-0 h1">Protein Dashboard</span>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse right" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">Dashboard</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="results.html">Results <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="data.html">Data</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">Help <i class="fas fa-question-circle"></i></a>
-      </li>
-    
-    </ul>
-  </div>
-</nav>
-    
-<!--------------- Main Section -------------->
-
-<div class="container">
-  <div class="row">
-      <div class="col-sm-12">
-        <h1>Data</h1>
-      </div>
-  </div>
-  <hr>
-
-<div class="container background-tab">
-    <div class="row">
-        <div class="col-md-12">
-            <h5>Data used to create the dashboard</h5>
+    <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">What you need to know..</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>This is a dashboard of data showing which brand of supplement both male and female consume. This also indicates the age along with the total monthly spends on average that is spent. We also measure how long the person has been training for.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
 
-<table class="table table-striped">
-  <thead class="thead">
-    <tr><th scope="col">Brand</th>	<th scope="col">Age	<th scope="col">Spend</th>	<th scope="col">Year</th>	<th scope="col">Sex</th></tr>
-</thead>
-<tbody></tbody>
-<tr>	<td>	Myprotein	</td>	<td>	39	</td>	<td>	48	</td>	<td>	2016	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	24	</td>	<td>	70	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	45	</td>	<td>	22	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	44	</td>	<td>	66	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	24	</td>	<td>	20	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	32	</td>	<td>	66	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	29	</td>	<td>	42	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	33	</td>	<td>	36	</td>	<td>	2017	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	31	</td>	<td>	88	</td>	<td>	2015	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	33	</td>	<td>	46	</td>	<td>	2017	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	48	</td>	<td>	40	</td>	<td>	2015	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	23	</td>	<td>	46	</td>	<td>	2015	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	20	</td>	<td>	27	</td>	<td>	2015	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	37	</td>	<td>	78	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	45	</td>	<td>	20	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	25	</td>	<td>	91	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	20	</td>	<td>	20	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	28	</td>	<td>	55	</td>	<td>	2016	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	19	</td>	<td>	17	</td>	<td>	2015	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	30	</td>	<td>	12	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	36	</td>	<td>	46	</td>	<td>	2018	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	35	</td>	<td>	98	</td>	<td>	2017	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	46	</td>	<td>	68	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	32	</td>	<td>	65	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	31	</td>	<td>	88	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	24	</td>	<td>	19	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	45	</td>	<td>	53	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	32	</td>	<td>	87	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	38	</td>	<td>	36	</td>	<td>	2018	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	41	</td>	<td>	27	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	35	</td>	<td>	73	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	32	</td>	<td>	94	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	50	</td>	<td>	13	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	25	</td>	<td>	74	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	50	</td>	<td>	28	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	22	</td>	<td>	46	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	27	</td>	<td>	83	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	33	</td>	<td>	51	</td>	<td>	2016	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	31	</td>	<td>	22	</td>	<td>	2016	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	40	</td>	<td>	23	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	27	</td>	<td>	68	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	30	</td>	<td>	52	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	50	</td>	<td>	59	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	48	</td>	<td>	42	</td>	<td>	2018	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	35	</td>	<td>	38	</td>	<td>	2018	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	30	</td>	<td>	29	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	34	</td>	<td>	67	</td>	<td>	2016	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	41	</td>	<td>	29	</td>	<td>	2015	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	29	</td>	<td>	22	</td>	<td>	2016	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	21	</td>	<td>	23	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	38	</td>	<td>	13	</td>	<td>	2018	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	33	</td>	<td>	81	</td>	<td>	2016	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	36	</td>	<td>	21	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	21	</td>	<td>	71	</td>	<td>	2015	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	39	</td>	<td>	35	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	23	</td>	<td>	74	</td>	<td>	2015	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	24	</td>	<td>	48	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	33	</td>	<td>	82	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	18	</td>	<td>	13	</td>	<td>	2016	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	41	</td>	<td>	88	</td>	<td>	2015	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	42	</td>	<td>	87	</td>	<td>	2014	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	25	</td>	<td>	76	</td>	<td>	2015	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	28	</td>	<td>	92	</td>	<td>	2015	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	29	</td>	<td>	64	</td>	<td>	2018	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	36	</td>	<td>	20	</td>	<td>	2017	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	44	</td>	<td>	69	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	47	</td>	<td>	25	</td>	<td>	2014	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	32	</td>	<td>	71	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	23	</td>	<td>	93	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	34	</td>	<td>	64	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	24	</td>	<td>	42	</td>	<td>	2016	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	24	</td>	<td>	61	</td>	<td>	2018	</td>	<td>	Female	</td>	</tr>
-<tr>	<td>	Bulkpowders	</td>	<td>	42	</td>	<td>	73	</td>	<td>	2015	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Protein Works	</td>	<td>	42	</td>	<td>	90	</td>	<td>	2018	</td>	<td>	Male	</td>	</tr>
-<tr>	<td>	Myprotein	</td>	<td>	38	</td>	<td>	39	</td>	<td>	2017	</td>	<td>	Female	</td>	</tr>
-  </tbody>
-</table>    
+    <!--------------- Nav Section --------------->
 
-</div>
-<div class="col-sm-1"></div>
-        
-    </div>
-</div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <span class="navbar-brand mb-0 h1">Protein Dashboard</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse right" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="results.html">Results <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="data.html">Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#myModal" href="#">Help <i class="fas fa-question-circle"></i></a>
+                </li>
 
+            </ul>
+        </div>
+    </nav>
 
-<script type="text/javascript" src="static/js/custom.js"></script> 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!--------------- Main Section -------------->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>Data</h1>
+            </div>
+        </div>
+        <hr>
+
+        <div class="container background-tab">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Data used to create the dashboard</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+
+                    <table class="table table-striped">
+                        <thead class="thead">
+                            <tr>
+                                <th scope="col">Brand</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Spend</th>
+                                <th scope="col">Year</th>
+                                <th scope="col">Sex</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>39</td>
+                                <td>48</td>
+                                <td>2016</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>24</td>
+                                <td>70</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>45</td>
+                                <td>22</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>44</td>
+                                <td>66</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>24</td>
+                                <td>20</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>32</td>
+                                <td>66</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>29</td>
+                                <td>42</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>33</td>
+                                <td>36</td>
+                                <td>2017</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>31</td>
+                                <td>88</td>
+                                <td>2015</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>33</td>
+                                <td>46</td>
+                                <td>2017</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>48</td>
+                                <td>40</td>
+                                <td>2015</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>23</td>
+                                <td>46</td>
+                                <td>2015</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>20</td>
+                                <td>27</td>
+                                <td>2015</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>37</td>
+                                <td>78</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>45</td>
+                                <td>20</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>25</td>
+                                <td>91</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>20</td>
+                                <td>20</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>28</td>
+                                <td>55</td>
+                                <td>2016</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>19</td>
+                                <td>17</td>
+                                <td>2015</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>30</td>
+                                <td>12</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>36</td>
+                                <td>46</td>
+                                <td>2018</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>35</td>
+                                <td>98</td>
+                                <td>2017</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>46</td>
+                                <td>68</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>32</td>
+                                <td>65</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>31</td>
+                                <td>88</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>24</td>
+                                <td>19</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>45</td>
+                                <td>53</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>32</td>
+                                <td>87</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>38</td>
+                                <td>36</td>
+                                <td>2018</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>41</td>
+                                <td>27</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>35</td>
+                                <td>73</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>32</td>
+                                <td>94</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>50</td>
+                                <td>13</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>25</td>
+                                <td>74</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>50</td>
+                                <td>28</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>22</td>
+                                <td>46</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>27</td>
+                                <td>83</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>33</td>
+                                <td>51</td>
+                                <td>2016</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>31</td>
+                                <td>22</td>
+                                <td>2016</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>40</td>
+                                <td>23</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>27</td>
+                                <td>68</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>30</td>
+                                <td>52</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>50</td>
+                                <td>59</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>48</td>
+                                <td>42</td>
+                                <td>2018</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>35</td>
+                                <td>38</td>
+                                <td>2018</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>30</td>
+                                <td>29</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>34</td>
+                                <td>67</td>
+                                <td>2016</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>41</td>
+                                <td>29</td>
+                                <td>2015</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>29</td>
+                                <td>22</td>
+                                <td>2016</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>21</td>
+                                <td>23</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>38</td>
+                                <td>13</td>
+                                <td>2018</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>33</td>
+                                <td>81</td>
+                                <td>2016</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>36</td>
+                                <td>21</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>21</td>
+                                <td>71</td>
+                                <td>2015</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>39</td>
+                                <td>35</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>23</td>
+                                <td>74</td>
+                                <td>2015</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>24</td>
+                                <td>48</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>33</td>
+                                <td>82</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>18</td>
+                                <td>13</td>
+                                <td>2016</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>41</td>
+                                <td>88</td>
+                                <td>2015</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>42</td>
+                                <td>87</td>
+                                <td>2014</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>25</td>
+                                <td>76</td>
+                                <td>2015</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>28</td>
+                                <td>92</td>
+                                <td>2015</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>29</td>
+                                <td>64</td>
+                                <td>2018</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>36</td>
+                                <td>20</td>
+                                <td>2017</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>44</td>
+                                <td>69</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>47</td>
+                                <td>25</td>
+                                <td>2014</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>32</td>
+                                <td>71</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>23</td>
+                                <td>93</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>34</td>
+                                <td>64</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>24</td>
+                                <td>42</td>
+                                <td>2016</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>24</td>
+                                <td>61</td>
+                                <td>2018</td>
+                                <td>Female</td>
+                            </tr>
+                            <tr>
+                                <td>Bulkpowders</td>
+                                <td>42</td>
+                                <td>73</td>
+                                <td>2015</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Protein Works</td>
+                                <td>42</td>
+                                <td>90</td>
+                                <td>2018</td>
+                                <td>Male</td>
+                            </tr>
+                            <tr>
+                                <td>Myprotein</td>
+                                <td>38</td>
+                                <td>39</td>
+                                <td>2017</td>
+                                <td>Female</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-sm-1"></div>
+
+            </div>
+        </div>
+
+        <script type="text/javascript" src="static/js/custom.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
+
 </html>
